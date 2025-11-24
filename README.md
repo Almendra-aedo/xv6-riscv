@@ -133,3 +133,25 @@ La implementación respeta el modelo de memoria virtual de xv6, manteniendo escr
 
 Evidencia
 
+<img width="738" height="310" alt="image" src="https://github.com/user-attachments/assets/d0761d43-3ea2-4566-9998-6e9af651865c" />
+
+<img width="647" height="845" alt="image" src="https://github.com/user-attachments/assets/3f1f1535-6de2-4e11-a01a-0d3a807e2c3e" />
+<img width="1005" height="968" alt="image" src="https://github.com/user-attachments/assets/91b68836-c0f3-4cbd-b774-95bf48d2e59c" />
+
+
+<img width="567" height="787" alt="image" src="https://github.com/user-attachments/assets/29848696-a981-49ca-ba6c-dffe82702023" />
+
+<img width="742" height="571" alt="image" src="https://github.com/user-attachments/assets/d6f019ac-ec8d-4896-850c-6c1868442dcf" />
+<img width="227" height="173" alt="image" src="https://github.com/user-attachments/assets/e538c290-ea2f-40d8-bd7c-a727d423b5ee" />
+
+<img width="1027" height="700" alt="image" src="https://github.com/user-attachments/assets/f9df5af0-d440-4042-aa6b-7cef57fc49e0" />
+
+
+
+
+
+
+
+
+
+
