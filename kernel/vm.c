@@ -484,3 +484,61 @@ ismapped(pagetable_t pagetable, uint64 va)
   }
   return 0;
 }
+
+int
+mrdprotect(uint64 addr, int len)
+{
+  struct proc *p = myproc();
+  pagetable_t pagetable = p->pagetable;
+
+  if(len <= 0)
+    return -1;
+  if(addr % PGSIZE != 0)
+    return -1;
+
+  uint64 start = addr;
+  uint64 end   = addr + (uint64)len * PGSIZE;
+
+  if(end > p->sz)
+    return -1;
+
+  for(uint64 a = start; a < end; a += PGSIZE){
+    pte_t *pte = walk(pagetable, a, 0);
+    if(pte == 0 || (*pte & PTE_V) == 0 || (*pte & PTE_U) == 0)
+      return -1;
+
+    *pte &= ~PTE_R;  // quitar permiso de lectura
+  }
+
+  sfence_vma();  // limpiar TLB
+  return 0;
+}
+
+int
+munrdprotect(uint64 addr, int len)
+{
+  struct proc *p = myproc();
+  pagetable_t pagetable = p->pagetable;
+
+  if(len <= 0)
+    return -1;
+  if(addr % PGSIZE != 0)
+    return -1;
+
+  uint64 start = addr;
+  uint64 end   = addr + (uint64)len * PGSIZE;
+
+  if(end > p->sz)
+    return -1;
+
+  for(uint64 a = start; a < end; a += PGSIZE){
+    pte_t *pte = walk(pagetable, a, 0);
+    if(pte == 0 || (*pte & PTE_V) == 0 || (*pte & PTE_U) == 0)
+      return -1;
+
+    *pte |= PTE_R;  // restaurar permiso de lectura
+  }
+
+  sfence_vma();
+  return 0;
+}
